@@ -8,9 +8,10 @@ class CVForm extends Component {
         this.state = {  }
     }
     render() { 
+        const { cv, handleChangePersonal} = this.props
         return ( 
             <Form>
-                <Personal />
+                <Personal personalInfo={cv.personalInfo} onChange={handleChangePersonal}/>
             </Form>
          );
     }

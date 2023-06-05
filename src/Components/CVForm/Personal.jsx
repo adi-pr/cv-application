@@ -3,51 +3,32 @@ import Input from '../Utils/Input';
 import { Form } from 'react-bootstrap';
 
 class Personal extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstName: '',
-            lastName: '',
-            title: '',
-            address: '',
-            phoneNo: '',
-            email: '',
-        }
-    }
-
-    handleChange(e) {
-        const { name, value } = e.target;
-        this.setState({
-            [name]: value,
-        });
-    }
-
     render() {
-        const { firstName, lastName, title, address, phoneNo, email } = this.state
+        const { personalInfo, onChange } = this.props
         return (
             <div className='personalContainer'>
                 <Form.Group className="mb-3">
-                    <Input type="text" name="firstName" placeholder="First Name" onChange={(e) => this.handleChange(e)} value={firstName} />
+                    <Input type="text" name="firstName" placeholder="First Name" onChange={(e) => onChange(e)} value={personalInfo.firstName} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Input type="text" name="lastName" placeholder="Last Name" onChange={(e) => this.handleChange(e)} value={lastName} />
+                    <Input type="text" name="lastName" placeholder="Last Name" onChange={(e) => onChange(e)} value={personalInfo.lastName} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Input type="text" name="title" placeholder="Title" onChange={(e) => this.handleChange(e)} value={title} />
+                    <Input type="text" name="title" placeholder="Title" onChange={(e) => onChange(e)} value={personalInfo.title} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Input type="text" name="address" placeholder="Address" onChange={(e) => this.handleChange(e)} value={address} />
+                    <Input type="text" name="address" placeholder="Address" onChange={(e) => onChange(e)} value={personalInfo.address} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Input type="text" name="phoneNo" placeholder="Phone Number" onChange={(e) => this.handleChange(e)} value={phoneNo} />
+                    <Input type="text" name="phoneNo" placeholder="Phone Number" onChange={(e) => onChange(e)} value={personalInfo.phoneNo} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Input type="text" name="email" placeholder="Email" onChange={(e) => this.handleChange(e)} value={email} />
+                    <Input type="text" name="email" placeholder="Email" onChange={(e) => onChange(e)} value={personalInfo.email} />
                 </Form.Group>
                 
             </div>

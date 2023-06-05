@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import CVForm from "./Components/CVForm/CVFrom";
+import Main from "./Components/Main";
 
 function App() {
   return (
     <div className="App">
-      <CVForm />
+      <Main />
     </div>
   );
 }
