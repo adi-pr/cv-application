@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import CVForm from './CVForm/CVFrom'
+import CVPreview from './CVPreview/CVPreview'
 import emptyCV from './Utils/emptyCV'
 
 function Main() {
+
     const [cv, setCv] = useState(emptyCV)
 
      const handleChangePersonal = (e) => {
@@ -20,6 +22,7 @@ function Main() {
     return ( 
         <>
             <CVForm cv={cv} handleChangePersonal={handleChangePersonal}/>
+            <CVPreview cv={cv}/>
         </>
      );
 }
