@@ -24,4 +24,24 @@ To run the CV application locally, follow these steps:
 
     ```npm start```
 
-6. Open your web browser and visit ```http://localhost:3000``` to access the CV application.
+6. Open your web browser and visit [http://localhost:3000] to access the CV application.
+
+## Customization
+You can customize the CV application by modifying certain aspects according to your needs. Here are some key files and directories to consider:
+
+* ```src/components```: This directory contains the main components used in the application. You can modify these components or create new ones to tailor the user interface.
+
+* ```src/styles```: This directory contains the CSS stylesheets for the application. You can modify the existing styles or add new ones to change the appearance of the CV application.
+
+## License
+This CV application is open-source and released under the [MIT License](https://opensource.org/license/mit/). Feel free to use, modify, and distribute it as per the terms of the license
+
+## Acknowledgments
+
+This CV application was built using React, leveraging various open-source libraries and frameworks.
+
+* React
+* Create React App
+* React Router
+* React PDF
+* React Icons
