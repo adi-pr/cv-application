@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import CVHeader from './CVHeader'
+import CVContent from './CVContent'
+
 
 class CVPreview extends Component {
     render() { 
@@ -8,7 +10,7 @@ class CVPreview extends Component {
         return ( 
             <div>
                 <CVHeader personalInfo={cv.personalInfo} />
-                
+                <CVContent personalInfo={cv.personalInfo} experience={cv.experience} education={cv.education}/>
             </div>
          );
     }

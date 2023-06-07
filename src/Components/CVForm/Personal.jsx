@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Input from '../Utils/Input'
+import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import { Form } from 'react-bootstrap'
 
 class Personal extends Component {
@@ -19,6 +20,22 @@ class Personal extends Component {
                 <Input type="tel" name="phoneNo" placeholder="Phone Number" onChange={(e) => onChange(e)} value={personalInfo.phoneNo} />
 
                 <Input type="email" name="email" placeholder="Email" onChange={(e) => onChange(e)} value={personalInfo.email} />
+
+                <FloatingLabel
+                    controlId="floatingTextarea"
+                    label="Description"
+                    className="mb-3"
+                >
+                    <Form.Control
+                        as="textarea"
+                        name="description"
+                        placeholder="Description"
+                        onChange={(e) => onChange(e)}
+                        value={personalInfo.description}
+                        style={{ height: '100px' }}
+                    />
+
+                </FloatingLabel>
             </Form.Group>
         );
     }
