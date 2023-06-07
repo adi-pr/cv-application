@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Input from '../Utils/Input';
-import { Form } from 'react-bootstrap';
+import Input from '../Utils/Input'
+import { Form } from 'react-bootstrap'
 
 class Personal extends Component {
     render() {
@@ -24,11 +24,11 @@ class Personal extends Component {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Input type="text" name="phoneNo" placeholder="Phone Number" onChange={(e) => onChange(e)} value={personalInfo.phoneNo} />
+                    <Input type="tel" name="phoneNo" placeholder="Phone Number" onChange={(e) => onChange(e)} value={personalInfo.phoneNo} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Input type="text" name="email" placeholder="Email" onChange={(e) => onChange(e)} value={personalInfo.email} />
+                    <Input type="email" name="email" placeholder="Email" onChange={(e) => onChange(e)} value={personalInfo.email} />
                 </Form.Group>
                 
             </div>
