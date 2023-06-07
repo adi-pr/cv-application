@@ -1,12 +1,12 @@
 import React from 'react'
-import Form from 'react-bootstrap/Form';
+import { Form, InputGroup } from 'react-bootstrap/';
 
 const Input = ({ type, name, placeholder, onChange, value }) => {
     return (
 
-        <div>
+        <InputGroup className='mb-3'>
             <Form.Control type={type} name={name} placeholder={placeholder} onChange={onChange} value={value} />
-        </div>
+        </InputGroup>
     )
 }
 

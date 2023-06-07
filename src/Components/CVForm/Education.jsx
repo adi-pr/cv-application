@@ -18,10 +18,11 @@ const Education = ({ education, onChange, onAdd, onDelete }) => {
   ));
 
   return (
-    <div>
+    <Form.Group className='educationContainer'>
+      <Form.Label>Education</Form.Label>
       {educationItems}
       <Button variant="success" onClick={onAdd}>Add</Button>
-    </div>
+    </Form.Group>
   );
 };
 

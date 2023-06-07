@@ -18,10 +18,11 @@ const Experience = ({ experience, onChange, onAdd, onDelete }) => {
   ));
 
   return (
-    <div>
+    <Form.Group className='experienceContainer'>
+      <Form.Label>Experience</Form.Label>
       {experienceItems}
       <Button variant="success" onClick={onAdd}>Add</Button>
-    </div>
+    </Form.Group>
   );
 };
 
