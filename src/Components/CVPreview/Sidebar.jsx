@@ -1,22 +1,24 @@
 import React from 'react'
 
 const Sidebar = ({ personalInfo }) => {
-    const {address, phoneNumber, email} = personalInfo
+    const {address, phoneNumber, email, pfp} = personalInfo
+    console.log("🚀 ~ file: Sidebar.jsx:5 ~ Sidebar ~ pfp:", pfp)
     
     return ( 
         <div className='sidebar'>
+            <img alt="pfp preview" src={pfp}/>
             <p>Personal Details</p>
             <section>
-                <p>Address</p>
-                <p>{address}</p>
+                <div className='sidebarHeader'>Address</div>
+                <div>{address}</div>
             </section>
             <section>
-                <p>Phone Number</p>
-                <p>{phoneNumber}</p>
+                <div className='sidebarHeader'>Phone Number</div>
+                <div>{phoneNumber}</div>
             </section>
             <section>
-                <p>Email</p>
-                <p>{email}</p>
+                <div className='sidebarHeader'>Email</div>
+                <div>{email}</div>
             </section>
         </div>
      );

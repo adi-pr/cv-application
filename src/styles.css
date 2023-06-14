@@ -75,6 +75,18 @@ button {
   border-bottom: 1px solid #143e72;
 }
 
+.sidebar > img {
+  margin-bottom: 20px;
+}
+
+.sidebar > section {
+  margin-bottom: 20px;
+}
+
+.sidebarHeader {
+  font-weight: bold;
+}
+
 .description > div {
   font-size: 16px;
   font-style: italic;

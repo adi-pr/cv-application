@@ -20,6 +20,18 @@ function Main() {
         }))
     }
 
+    const handleFileChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setCv((prevState) => ({
+                ...prevState,
+                personalInfo: {
+                    ...prevState.personalInfo,
+                    pfp:  URL.createObjectURL(e.target.files[0]),
+                }
+            }))
+        }
+      };
+
     const handleChangeEducation = (e, id) => {
         const { name, value } = e.target
 
@@ -110,6 +122,7 @@ function Main() {
             <CVForm
                 cv={cv}
                 handleChangePersonal={handleChangePersonal}
+                handleFileChange={handleFileChange}
                 handleChangeEducation={handleChangeEducation}
                 onAddEducation={handleAddEducation}
                 onDeleteEducation={handleDeleteEducation}

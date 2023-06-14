@@ -6,10 +6,10 @@ import Experience from './Experience'
 
 class CVForm extends Component {
     render() {
-        const { cv, handleChangePersonal, handleChangeEducation, onAddEducation, onDeleteEducation, handleChangeExperience, onAddExperience, onDeleteExperience } = this.props 
+        const { cv, handleChangePersonal, handleFileChange, handleChangeEducation, onAddEducation, onDeleteEducation, handleChangeExperience, onAddExperience, onDeleteExperience } = this.props 
         return (
             <Form>     
-                <Personal personalInfo={cv.personalInfo} onChange={handleChangePersonal} />
+                <Personal personalInfo={cv.personalInfo} onChange={handleChangePersonal} onFileChange={handleFileChange} />
                 <Education
                     education={cv.education}
                     onChange={handleChangeEducation}

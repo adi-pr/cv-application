@@ -5,7 +5,7 @@ import { Form } from 'react-bootstrap'
 
 class Personal extends Component {
     render() {
-        const { personalInfo, onChange } = this.props
+        const { personalInfo, onChange, onFileChange } = this.props
         return (
             <Form.Group className='personalContainer'>
                 <Form.Label>Personal</Form.Label>
@@ -15,6 +15,8 @@ class Personal extends Component {
 
                 <Input type="text" name="title" placeholder="Title" onChange={(e) => onChange(e)} value={personalInfo.title} />
 
+                <Input type="file" name="pfp" placeholder="Display Name" onChange={(e) => onFileChange(e)} />
+    
                 <Input type="text" name="address" placeholder="Address" onChange={(e) => onChange(e)} value={personalInfo.address} />
 
                 <Input type="tel" name="phoneNumber" placeholder="Phone Number" onChange={(e) => onChange(e)} value={personalInfo.phoneNumber} />
