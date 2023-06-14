@@ -17,7 +17,7 @@ class Personal extends Component {
 
                 <Input type="text" name="address" placeholder="Address" onChange={(e) => onChange(e)} value={personalInfo.address} />
 
-                <Input type="tel" name="phoneNo" placeholder="Phone Number" onChange={(e) => onChange(e)} value={personalInfo.phoneNo} />
+                <Input type="tel" name="phoneNumber" placeholder="Phone Number" onChange={(e) => onChange(e)} value={personalInfo.phoneNumber} />
 
                 <Input type="email" name="email" placeholder="Email" onChange={(e) => onChange(e)} value={personalInfo.email} />
 

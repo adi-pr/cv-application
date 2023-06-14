@@ -3,21 +3,17 @@ import List from '../Utils/List'
 
 const EducationItem = ({ educationItem }) => {
     return (
-        <div>
-            <div>
+            <div className='educationItem'>
                 <p>
                     {educationItem.from} - {educationItem.to}
                 </p>
-                <section>
                     <List
                         title={`${educationItem.universityName}, ${educationItem.city}`}
                     >
-                        <p>Degree: {educationItem.degree}</p>
-                        <p>Subject: {educationItem.subject}</p>
+                        <div>Degree: {educationItem.degree}</div>
+                        <div>Subject: {educationItem.subject}</div>
                     </List>
-                </section>
             </div>
-        </div>
     );
 }
 
