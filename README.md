@@ -42,6 +42,5 @@ This CV application was built using React, leveraging various open-source librar
 
 * React
 * Create React App
-* React Router
 * React PDF
 * React Icons
