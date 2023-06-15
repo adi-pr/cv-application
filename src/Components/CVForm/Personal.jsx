@@ -15,7 +15,7 @@ class Personal extends Component {
 
                 <Input type="text" name="title" placeholder="Title" onChange={(e) => onChange(e)} value={personalInfo.title} />
 
-                <Input type="file" name="pfp" placeholder="Display Name" onChange={(e) => onFileChange(e)} />
+                <Input type="file" name="pfp" onChange={(e) => onFileChange(e)} />
     
                 <Input type="text" name="address" placeholder="Address" onChange={(e) => onChange(e)} value={personalInfo.address} />
 

@@ -2,7 +2,6 @@ import React from 'react'
 
 const Sidebar = ({ personalInfo }) => {
     const {address, phoneNumber, email, pfp} = personalInfo
-    console.log("🚀 ~ file: Sidebar.jsx:5 ~ Sidebar ~ pfp:", pfp)
     
     return ( 
         <div className='sidebar'>

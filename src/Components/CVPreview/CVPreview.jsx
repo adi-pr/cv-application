@@ -9,7 +9,7 @@ class CVPreview extends Component {
         const { cv } = this.props
 
         return ( 
-            <div className='cvPreview '>
+            <div className='cvPreview' id='cv'>
                 <CVHeader personalInfo={cv.personalInfo} />
                 <CVContent personalInfo={cv.personalInfo} experience={cv.experience} education={cv.education}/>
                 <Sidebar personalInfo={cv.personalInfo} />

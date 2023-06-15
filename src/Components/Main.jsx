@@ -3,139 +3,163 @@ import CVForm from './CVForm/CVFrom'
 import CVPreview from './CVPreview/CVPreview'
 import emptyCV from './Utils/emptyCV'
 import uniqid from "uniqid";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import Footer from './Footer';
 
 function Main() {
 
     const [cv, setCv] = useState(emptyCV)
 
-    const handleChangePersonal = (e) => {
-        const { name, value } = e.target;
 
-        setCv((prevState) => ({
-            ...prevState,
-            personalInfo: {
-                ...prevState.personalInfo,
-                [name]: value,
-            }
-        }))
-    }
+    const generatePDF = async () => {
+        const doc = new jsPDF();
+      
+        const element = document.getElementById('cv');
+      
+        const canvas = await html2canvas(element);
+      
+        const imgData = canvas.toDataURL('image/png');
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      
+        doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      
+        doc.save('cv.pdf');
+      };
+      
 
-    const handleFileChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
+        const handleChangePersonal = (e) => {
+            const { name, value } = e.target;
+
             setCv((prevState) => ({
                 ...prevState,
                 personalInfo: {
                     ...prevState.personalInfo,
-                    pfp:  URL.createObjectURL(e.target.files[0]),
+                    [name]: value,
                 }
             }))
         }
-      };
 
-    const handleChangeEducation = (e, id) => {
-        const { name, value } = e.target
+        const handleFileChange = (e) => {
+            if (e.target.files && e.target.files[0]) {
+                setCv((prevState) => ({
+                    ...prevState,
+                    personalInfo: {
+                        ...prevState.personalInfo,
+                        pfp: URL.createObjectURL(e.target.files[0]),
+                    }
+                }))
+            }
+        };
 
-        setCv((prevState) => {
-            const newEducation = prevState.education.map((educationItem) => {
-                if (educationItem.id === id) {
-                    return { ...educationItem, [name]: value }
-                }
-                return educationItem
+        const handleChangeEducation = (e, id) => {
+            const { name, value } = e.target
+
+            setCv((prevState) => {
+                const newEducation = prevState.education.map((educationItem) => {
+                    if (educationItem.id === id) {
+                        return { ...educationItem, [name]: value }
+                    }
+                    return educationItem
+                })
+                return { ...prevState, education: [...newEducation] }
             })
-            return { ...prevState, education: [...newEducation] }
-        })
-    }
+        }
 
-    const handleAddEducation = useCallback((e) => {
-        e.preventDefault()
+        const handleAddEducation = useCallback((e) => {
+            e.preventDefault()
 
-        setCv((prevState) => ({
-            ...prevState,
-            education: [
-                ...prevState.education,
-                {
-                    id: uniqid(),
-                    universityName: '',
-                    city: '',
-                    degree: '',
-                    subject: '',
-                    from: '',
-                    to: '',
-                },
-            ],
-        }));
-    }, []);
+            setCv((prevState) => ({
+                ...prevState,
+                education: [
+                    ...prevState.education,
+                    {
+                        id: uniqid(),
+                        universityName: '',
+                        city: '',
+                        degree: '',
+                        subject: '',
+                        from: '',
+                        to: '',
+                    },
+                ],
+            }));
+        }, []);
 
-    const handleDeleteEducation = (id) => {
-        setCv((prevState) => {
-            const newEducation = prevState.education.filter(
-                (educationItem) => educationItem.id !== id
-            )
-            return { ...prevState, education: [...newEducation] }
-        })
-    }
-
-    const handleChangeExperience = (e, id) => {
-        const { name, value } = e.target
-
-        setCv((prevState) => {
-            const newExperience = prevState.experience.map((experienceItem) => {
-                if (experienceItem.id === id) {
-                    return { ...experienceItem, [name]: value }
-                }
-                return experienceItem
+        const handleDeleteEducation = (id) => {
+            setCv((prevState) => {
+                const newEducation = prevState.education.filter(
+                    (educationItem) => educationItem.id !== id
+                )
+                return { ...prevState, education: [...newEducation] }
             })
-            return { ...prevState, experience: [...newExperience] }
-        })
+        }
+
+        const handleChangeExperience = (e, id) => {
+            const { name, value } = e.target
+
+            setCv((prevState) => {
+                const newExperience = prevState.experience.map((experienceItem) => {
+                    if (experienceItem.id === id) {
+                        return { ...experienceItem, [name]: value }
+                    }
+                    return experienceItem
+                })
+                return { ...prevState, experience: [...newExperience] }
+            })
+        }
+
+        const handleAddExperience = useCallback((e) => {
+            e.preventDefault()
+
+            setCv((prevState) => ({
+                ...prevState,
+                experience: [
+                    ...prevState.experience,
+                    {
+                        id: uniqid(),
+                        position: '',
+                        company: '',
+                        city: '',
+                        from: '',
+                        to: '',
+                    },
+                ],
+            }));
+        }, []);
+
+        const handleDeleteExperience = (id) => {
+            setCv((prevState) => {
+                const newExperience = prevState.experience.filter(
+                    (experienceItem) => experienceItem.id !== id
+                )
+                return { ...prevState, experience: [...newExperience] }
+            })
+        }
+
+        return (
+            <>
+                <CVForm
+                    cv={cv}
+                    handleChangePersonal={handleChangePersonal}
+                    handleFileChange={handleFileChange}
+                    handleChangeEducation={handleChangeEducation}
+                    onAddEducation={handleAddEducation}
+                    onDeleteEducation={handleDeleteEducation}
+                    handleChangeExperience={handleChangeExperience}
+                    onAddExperience={handleAddExperience}
+                    onDeleteExperience={handleDeleteExperience}
+                    generatePDF={generatePDF}
+                />
+
+
+                <CVPreview cv={cv} />
+                <Footer />
+            </>
+        );
     }
 
-    const handleAddExperience = useCallback((e) => {
-        e.preventDefault()
+    export default Main;
 
-        setCv((prevState) => ({
-            ...prevState,
-            experience: [
-                ...prevState.experience,
-                {
-                    id: uniqid(),
-                    position: '',
-                    company: '',
-                    city: '',
-                    from: '',
-                    to: '',
-                },
-            ],
-        }));
-    }, []);
-
-    const handleDeleteExperience = (id) => {
-        setCv((prevState) => {
-            const newExperience = prevState.experience.filter(
-                (experienceItem) => experienceItem.id !== id
-            )
-            return { ...prevState, experience: [...newExperience] }
-        })
-    }
-
-    return (
-        <>
-            <CVForm
-                cv={cv}
-                handleChangePersonal={handleChangePersonal}
-                handleFileChange={handleFileChange}
-                handleChangeEducation={handleChangeEducation}
-                onAddEducation={handleAddEducation}
-                onDeleteEducation={handleDeleteEducation}
-                handleChangeExperience={handleChangeExperience}
-                onAddExperience={handleAddExperience}
-                onDeleteExperience={handleDeleteExperience}
-            />
-
-
-            <CVPreview cv={cv} />
-        </>
-    );
-}
-
-export default Main;
 
