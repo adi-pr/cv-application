@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/adi-pr/static/css/main.b2250df9.css",
+    "main.js": "/adi-pr/static/js/main.5da1286c.js",
+    "static/js/703.4109a6dd.chunk.js": "/adi-pr/static/js/703.4109a6dd.chunk.js",
+    "static/js/142.489ae3ee.chunk.js": "/adi-pr/static/js/142.489ae3ee.chunk.js",
+    "index.html": "/adi-pr/index.html",
+    "main.b2250df9.css.map": "/adi-pr/static/css/main.b2250df9.css.map",
+    "main.5da1286c.js.map": "/adi-pr/static/js/main.5da1286c.js.map",
+    "703.4109a6dd.chunk.js.map": "/adi-pr/static/js/703.4109a6dd.chunk.js.map",
+    "142.489ae3ee.chunk.js.map": "/adi-pr/static/js/142.489ae3ee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b2250df9.css",
+    "static/js/main.5da1286c.js"
+  ]
+}
